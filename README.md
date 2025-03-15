@@ -23,3 +23,26 @@ In the recent years, deep learning techniques, especially Convolutional Neural N
 
 ## 2.3 Existing Research
 Several research studies have applied deep learning techniques for insect and butterfly identification. For example, CNN-based models have been used to classify butterfly species with accuracies ranging from 85% to 90%. One study was able to obtain an accuracy of 88% using a model built from 20,000 images of butterflies. However, the majority of these models lack class diversity to be applied in real-world contexts or are limited to a particular region and are hence less generalizable. The majority of existing models have also not been fully deployed in real-world contexts, which limits their access to researchers and the general public. This project aims to address these shortcomings by creating a model that can classify a wide variety of butterfly species and can be deployed as an accessible tool for researchers and the public at large.
+
+# 3. Dataset & Preprocessing
+## 3.1 Dataset Overview
+The data set for the project consists of over 1000 labeled images of 75 butterfly species. The images are species-labeled and stored in a directory structure that can be loaded to train. The data set is split into a test set and a training set. The Training_set.csv contains the file names of the images and their corresponding species labels. The Testing_set.csv contains the names of image files which are not labeled and are to be predicted by the model. The training set contains the labeled images to train the model, while the testing set is used to test the model's performance after training.
+
+##  3.2 Preprocessing Steps
+To train the images, certain preprocessing tasks are performed:
+
+ - **Image Resizing:** Images are resized to a uniform size of 224x224 pixels to ensure symmetry when fed into the model.
+ - **Normalization:** The pixel value is normalized between [0, 1] by dividing all pixel values by 255. This ensures uniformity so that the model can learn with ease from input data.
+ - **Data Augmentation:** To improve dataset diversity and prevent overfitting, the following augmentation methods are employed:
+    - **Rotation:** Random ±20° rotation.
+    - **Flipping:** Images horizontally flipped.
+    - **Adjustments for Brightness:** Random brightness adjustment in images.
+    - **Synthetic Data Generation:** For less-representative species, synthetic images are generated using the above-discussed augmentation techniques to balance the dataset.
+ 
+These preprocessing steps help in improving model resilience by providing a more diverse input of images and ensuring that the network is not biased towards any specific class or feature.
+
+##  3.3 Exploratory Data Analysis
+Prior to training the model, exploratory data analysis (EDA) is conducted to gain a better insight into the dataset:
+ - **Class Distribution Visualization:** A bar plot is created to display the distribution of the various species in the dataset. This enables us to detect any imbalance in the number of images per species.
+ - **Sample Image Grid:** A sample image grid is presented to display representative images of different species such that it can be seen how appearance differs within and between species.
+ - **Outlier Detection:** Defective images and images that are not in input requirement format are rejected for data quality assurance purposes. Additionally, any outliers, for example, images that are too dark or distorted, will be identified and removed from the data set.
