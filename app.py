@@ -3,16 +3,16 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image
 
-# Load trained model (Ensure butterfly_model.h5 is in the same folder)
+# Load trained model
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model("butterfly_model.h5")  # Load your trained model
+    model = tf.keras.models.load_model("butterfly_model.h5")  # Update with your model file
     return model
 
-model = load_model()  # Load model once when app starts
+model = load_model()
 
-# Define class labels (Replace these with actual butterfly species names)
-class_labels = ["Monarch", "Swallowtail", "Painted Lady", "...", "Species 75"]
+# Define class labels (Replace with actual butterfly species names)
+class_labels = ["Species 1", "Species 2", "Species 3", "...", "Species 75"]
 
 # Streamlit UI
 st.title("🦋 Butterfly Species Classifier")
@@ -32,9 +32,9 @@ if uploaded_file is not None:
     
     # Make prediction
     predictions = model.predict(img_array)
-    predicted_class = np.argmax(predictions, axis=1)[0]
-    confidence = np.max(predictions)
+    top_5_indices = np.argsort(predictions[0])[-5:][::-1]  # Get top-5 predictions
     
-    # Display result
-    st.write(f"### Prediction: {class_labels[predicted_class]}")
-    st.write(f"Confidence: {confidence:.2f}")
+    # Display top-5 predicted species
+    st.write("### Prediction Results:")
+    for i, index in enumerate(top_5_indices):
+        st.write(f"{i+1}. {class_labels[index]} - Confidence: {predictions[0][index]:.2f}")
