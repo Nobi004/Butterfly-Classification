@@ -38,3 +38,5 @@ if uploaded_file is not None:
     st.write("### Prediction Results:")
     for i, index in enumerate(top_5_indices):
         st.write(f"{i+1}. {class_labels[index]} - Confidence: {predictions[0][index]:.2f}")
+import tensorflow as tf
+print(tf.__version__)
