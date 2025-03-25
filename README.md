@@ -47,7 +47,7 @@ Prior to training the model, exploratory data analysis (EDA) is conducted to gai
  - **Sample Image Grid:** A sample image grid is presented to display representative images of different species such that it can be seen how appearance differs within and between species.
  - **Outlier Detection:** Defective images and images that are not in input requirement format are rejected for data quality assurance purposes. Additionally, any outliers, for example, images that are too dark or distorted, will be identified and removed from the data set.
 
-# 4. 🧠Methodology (Model Design) (20%)
+# 4. 🧠Methodology (Model Design) 
 ## 4.1 Model Selection
  We test various CNN architectures:
  1. Baseline CNN: 3 Conv layers, Pooling, Dense layers.
@@ -55,7 +55,7 @@ Prior to training the model, exploratory data analysis (EDA) is conducted to gai
  VGG16
  ResNet-50
  EfficientNetB0
-3. Fine-tuned Model:
+ 3. Fine-tuned Model:
  Best architecture is fine-tuned using Transfer Learning.
 ## 4.2 Model Architecture
   - Input Layer: Accepts 224x224 images.
@@ -70,10 +70,10 @@ Prior to training the model, exploratory data analysis (EDA) is conducted to gai
   - Hyperparameter Tuning: Grid search for best dropout rate, batch size.
 ## 4.4 Model Training
  1. Trained for 50 epochs with early stopping.
- 2. GPU-accelerated training on [Google Colab](https://colab.research.google.com/drive/1Jjz4ZIy74ZvBXb2Ct0NL47qjNDdcUiWD?usp=sharing) / Kaggle Notebooks.
+ 2. GPU-accelerated training on [Google Colab](https://colab.research.google.com/drive/1Jjz4ZIy74ZvBXb2Ct0NL47qjNDdcUiWD?usp=sharing).
 
  
-# 5. 📈Evaluation & Results (15%)
+# 5. 📈Evaluation & Results 
 ## 5.1 Performance Metrics
  1. Accuracy: Measures overall correctness.
  2. Precision & Recall: Balance between false positives & false negatives.
@@ -101,7 +101,7 @@ Model
   - Study challenging species with overlapping patterns
 
  
-# 6. 🌍Deployment & Web Application (10%)
+# 6. 🌍Deployment & Web Application 
 ## 6.1 API Development
  Framework: FastAPI / Flask.
  Model hosted on Hugging Face Spaces / Google Cloud.
@@ -114,7 +114,7 @@ Model
  - Containerized using Docker.
  - Deployment on AWS/GCP for accessibility.
  
-# 7. 📢Discussion & Conclusion (10%)
+# 7. 📢Discussion & Conclusion 
 ## 7.1 Key Findings
   -  Achieved 91% accuracy using EfficientNet.
   -  Fine-tuning improved generalization.
@@ -124,3 +124,9 @@ Model
 ## 7.3 Future Improvements
   - Use Self-Supervised Learning for better feature extraction.
   - Mobile App Deployment for field research
+
+ 
+ # 8. 📚References 
+  - [Butterfly detection and classification techniques: A review](https://www.sciencedirect.com/science/article/pii/S266730532300039X#abs0001)
+  - [A Novel Method for the Classification of Butterfly Species Using Pre-Trained CNN Models](https://www.mdpi.com/2079-9292/11/13/2016)
+  - [Dataset](https://www.kaggle.com/datasets/phucthaiv02/butterfly-image-classification)
